@@ -1,0 +1,53 @@
+
+<html>
+    <head>
+        <script>
+            function getQueryVariable(variable) {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i=0;i<vars.length;i++) {
+                    var pair = vars[i].split("=");
+                    if (pair[0] == variable) {
+                    return pair[1];
+                    }
+                }
+
+                // alert('Query Variable ' + variable + ' not found');
+            }
+
+            var geld = Number(getQueryVariable("geld"));
+
+            var terugknop ="<button class=\"button\" onclick=\"window.location.replace('game.html?geld=" + (geld + 1) + "')\">terug</button>";
+
+            function weg(){
+                var knop = document.getElementById('knop');
+                var windowWidth = 1000;
+                var windowHeight = 300;
+                var xPosition = Math.floor(Math.random() * windowWidth);
+                var yPosition = Math.floor(Math.random() * windowHeight);
+                knop.style.left = xPosition + 'px';
+                knop.style.top = yPosition + 'px';
+            }
+        </script>
+        <style>
+        #knop {
+            position:absolute;
+            border: 1px solid black;
+            color: black;
+            background-color: red;
+            padding:30px;
+    }
+    body{
+        background-color: lightblue;
+    }
+        </style>
+        <title>KLIK ME NIET...</title>
+    </head>
+    <body>
+<button id="knop" onmouseover="weg()" onclick="document.write('<h6>hoera<h6/>' + terugknop)">
+    PAK ME DAN ALS JE KAN
+</button>
+<!-- <button class="button" onclick="windolocation.replace('game.html')">terug</button> -->
+    </body>
+ 
+</html>
